@@ -14,22 +14,20 @@ class ViewController: UIViewController {
     private lazy var dataSource: DataSource = initDataSource()
 
     private lazy var twitterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).configured {
-        $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "twitter")
+        $0.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: "twitter")
+        $0.register(TwitterSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "twitterheader")
         $0.backgroundView = UIView().configured { backgroundView in
             backgroundView.backgroundColor = .systemBackground
         }
 
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: view.bounds.width, height: 100)
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         layout.headerReferenceSize = CGSize(width: 0, height: 40)
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
 
         $0.collectionViewLayout = layout
-
-        $0.register(TwitterSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "twitterheader")
-
     }
 
     init(apiManager: APIManager) {
@@ -59,8 +57,8 @@ class ViewController: UIViewController {
 
     private func initDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: twitterCollectionView) { (collectionView, indexPath, twitterHandle) -> UICollectionViewCell? in
-            let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitter", for: indexPath)
-            var content = UIListContentConfiguration.cell()
+            let cell: UICollectionViewListCell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitter", for: indexPath) as! UICollectionViewListCell as! UICollectionViewListCell
+            var content = cell.defaultContentConfiguration()
             content.text = twitterHandle.name
             content.secondaryText = twitterHandle.username
             //            if twitterHandle.image == nil {
