@@ -17,7 +17,7 @@
 		0871758729A2F47700A20A52 /* TwitterEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871758629A2F47700A20A52 /* TwitterEndpoints.swift */; };
 		08BA6E3429A2899A00D82A15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E3329A2899A00D82A15 /* AppDelegate.swift */; };
 		08BA6E3629A2899A00D82A15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E3529A2899A00D82A15 /* SceneDelegate.swift */; };
-		08BA6E3829A2899A00D82A15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E3729A2899A00D82A15 /* ViewController.swift */; };
+		08BA6E3829A2899A00D82A15 /* TwitterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E3729A2899A00D82A15 /* TwitterListViewController.swift */; };
 		08BA6E3D29A2899B00D82A15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08BA6E3C29A2899B00D82A15 /* Assets.xcassets */; };
 		08BA6E4029A2899B00D82A15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BA6E3E29A2899B00D82A15 /* LaunchScreen.storyboard */; };
 		08BA6E4B29A2899B00D82A15 /* CollectiobViewDiffiableDataSourcePracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E4A29A2899B00D82A15 /* CollectiobViewDiffiableDataSourcePracticeTests.swift */; };
@@ -47,13 +47,12 @@
 		0871757429A2911700A20A52 /* TwitterProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterProfileModel.swift; sourceTree = "<group>"; };
 		0871757F29A2A7C800A20A52 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0871758129A2A97200A20A52 /* EndpointManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointManager.swift; sourceTree = "<group>"; };
-		0871758329A2CDDA00A20A52 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		0871758429A2EA4E00A20A52 /* TwitterSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSupplementaryView.swift; sourceTree = "<group>"; };
 		0871758629A2F47700A20A52 /* TwitterEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterEndpoints.swift; sourceTree = "<group>"; };
 		08BA6E3029A2899A00D82A15 /* CollectiobViewDiffiableDataSourcePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectiobViewDiffiableDataSourcePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BA6E3329A2899A00D82A15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08BA6E3529A2899A00D82A15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		08BA6E3729A2899A00D82A15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08BA6E3729A2899A00D82A15 /* TwitterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterListViewController.swift; sourceTree = "<group>"; };
 		08BA6E3C29A2899B00D82A15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08BA6E3F29A2899B00D82A15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08BA6E4129A2899B00D82A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		08BA6E5029A2899B00D82A15 /* CollectiobViewDiffiableDataSourcePracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectiobViewDiffiableDataSourcePracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BA6E5429A2899B00D82A15 /* CollectiobViewDiffiableDataSourcePracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectiobViewDiffiableDataSourcePracticeUITests.swift; sourceTree = "<group>"; };
 		08BA6E5629A2899B00D82A15 /* CollectiobViewDiffiableDataSourcePracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectiobViewDiffiableDataSourcePracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		08DC5B5A29A3F54D0053579E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 		0871756D29A28AE400A20A52 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				08BA6E3729A2899A00D82A15 /* ViewController.swift */,
+				08BA6E3729A2899A00D82A15 /* TwitterListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 				08BA6E3C29A2899B00D82A15 /* Assets.xcassets */,
 				08BA6E3E29A2899B00D82A15 /* LaunchScreen.storyboard */,
 				08BA6E4129A2899B00D82A15 /* Info.plist */,
-				0871758329A2CDDA00A20A52 /* Config.xcconfig */,
+				08DC5B5A29A3F54D0053579E /* Config.xcconfig */,
 			);
 			path = CollectiobViewDiffiableDataSourcePractice;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0871758729A2F47700A20A52 /* TwitterEndpoints.swift in Sources */,
-				08BA6E3829A2899A00D82A15 /* ViewController.swift in Sources */,
+				08BA6E3829A2899A00D82A15 /* TwitterListViewController.swift in Sources */,
 				0871758529A2EA4E00A20A52 /* TwitterSupplementaryView.swift in Sources */,
 				0871757029A2908700A20A52 /* Section.swift in Sources */,
 				0871758029A2A7C800A20A52 /* APIManager.swift in Sources */,
@@ -405,7 +405,7 @@
 /* Begin XCBuildConfiguration section */
 		08BA6E5829A2899B00D82A15 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0871758329A2CDDA00A20A52 /* Config.xcconfig */;
+			baseConfigurationReference = 08DC5B5A29A3F54D0053579E /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -466,7 +466,7 @@
 		};
 		08BA6E5929A2899B00D82A15 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0871758329A2CDDA00A20A52 /* Config.xcconfig */;
+			baseConfigurationReference = 08DC5B5A29A3F54D0053579E /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

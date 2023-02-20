@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         let apiManager: APIManager = APIManagerImpl()
-        let rootViewController = UINavigationController(rootViewController: ViewController(apiManager: apiManager))
+        let rootViewController = UINavigationController(rootViewController: TwitterListViewController(apiManager: apiManager))
 
         window.rootViewController = rootViewController
     }

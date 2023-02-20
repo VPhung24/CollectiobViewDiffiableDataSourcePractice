@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TwitterListViewController.swift
 //  CollectiobViewDiffiableDataSourcePractice
 //
 //  Created by Vivian Phung on 2/19/23.
@@ -8,7 +8,8 @@
 import UIKit
 import VivUIKitExtensions
 
-class ViewController: UIViewController {
+// this is for practice for an experience (table view tho) with search check out: https://github.com/VPhung24/NfcWriter/blob/cdef92481a7385fade29a155e4867d27c4caaaef/NfcWriter/View%20Controllers/TwitterSearchViewController.swift
+class TwitterListViewController: UIViewController {
     let apiManager: APIManager
     private var twitterProfiles: [TwitterProfileModel] = []
     private lazy var dataSource: DataSource = initDataSource()
@@ -53,30 +54,35 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        // this is hardcoded for practice building collectionviews with diffiable data source
         getTwitterProfile(type: "twitter")
     }
 
     private func initDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: twitterCollectionView) { [weak self] (collectionView, indexPath, twitterModelHandleId) -> UICollectionViewCell? in
-            let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitter", for: indexPath) as! UICollectionViewCell
-            let twitterModel = self?.twitterProfiles.first(where: { $0.id == twitterModelHandleId })
+            let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitter", for: indexPath)
+            guard let twitterModel = self?.twitterProfiles.first(where: { $0.id == twitterModelHandleId }) else {
+                return cell
+            }
 
             var content = UIListContentConfiguration.cell()
-            content.text = twitterModel?.name
-            content.secondaryText = twitterModel?.username
+            content.text = twitterModel.name
+            content.secondaryText = twitterModel.username
+
             // default profile photo size "normal" is 48x48. circle corner radius 48/2
             content.imageProperties.maximumSize = CGSize(width: 48, height: 48)
             content.imageProperties.cornerRadius = 24
 
-            if let twitterModelImage = twitterModel?.image {
+            if let twitterModelImage = twitterModel.image {
                 content.image = twitterModelImage
             } else {
-                self?.getProfileImage(for: twitterModel!)
+                self?.getProfileImage(for: twitterModel)
             }
 
             cell.contentConfiguration = content
             cell.accessibilityTraits = .button
-            cell.accessibilityLabel = "handle \(twitterModel?.username) with account name \(twitterModel?.name)"
+            cell.accessibilityLabel = "handle \(twitterModel.username) with account name \(twitterModel.name)"
             cell.accessibilityHint = "tap to tag user"
             return cell
         }
@@ -102,6 +108,7 @@ class ViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: animated)
     }
 
+    // this should be hooked up to a search bar
     private func getTwitterProfile(type: String) {
         let parameters: [String: Any] = ["q": type, "page": "1", "count": "10"]
 
@@ -126,7 +133,7 @@ class ViewController: UIViewController {
 
         let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
             guard let responseData = data, let image = UIImage(data: responseData), error == nil else {
-                print("error ===> \(error!.localizedDescription)")
+                print("error getting profile image ===> \(error!.localizedDescription)")
                 return
             }
 
@@ -146,13 +153,13 @@ class ViewController: UIViewController {
         })
     }
 
-    func getID(for model: [TwitterProfileModel]) -> [TwitterProfileModel.ID] {
-        return model.map { item in
+    func getID(for models: [TwitterProfileModel]) -> [TwitterProfileModel.ID] {
+        return models.map { item in
             return item.id
         }
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension TwitterListViewController: UICollectionViewDelegate {
 
 }
