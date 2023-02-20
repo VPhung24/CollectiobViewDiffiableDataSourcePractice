@@ -49,7 +49,7 @@ class TwitterListViewController: UIViewController {
         view.addSubviewWithInsets(twitterCollectionView)
 
         twitterCollectionView.dataSource = dataSource
-        twitterCollectionView.delegate = self
+        twitterCollectionView.delegate = self // not used but typically would be
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +59,7 @@ class TwitterListViewController: UIViewController {
         getTwitterProfile(type: "twitter")
     }
 
+    // MARK: - UICollectionViewDiffableDataSource
     private func initDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: twitterCollectionView) { [weak self] (collectionView, indexPath, twitterModelHandleId) -> UICollectionViewCell? in
             let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitter", for: indexPath)
@@ -108,6 +109,7 @@ class TwitterListViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: animated)
     }
 
+    // MARK: - Networking
     // this should be hooked up to a search bar
     private func getTwitterProfile(type: String) {
         let parameters: [String: Any] = ["q": type, "page": "1", "count": "10"]
@@ -138,10 +140,9 @@ class TwitterListViewController: UIViewController {
             }
 
             var currentSnapshot = self?.dataSource.snapshot()
-            if let datasourceIndex = currentSnapshot?.indexOfItem(twitterModel.id) {
-                let item = self?.twitterProfiles[datasourceIndex]
-                item?.image = image
-                currentSnapshot?.reconfigureItems([item!.id])
+            if let datasourceIndex = currentSnapshot?.indexOfItem(twitterModel.id), let item = self?.twitterProfiles[datasourceIndex] {
+                item.image = image
+                currentSnapshot?.reconfigureItems([item.id])
                 self?.dataSource.apply(currentSnapshot!, animatingDifferences: true)
             }
         }
@@ -160,6 +161,4 @@ class TwitterListViewController: UIViewController {
     }
 }
 
-extension TwitterListViewController: UICollectionViewDelegate {
-
-}
+extension TwitterListViewController: UICollectionViewDelegate {} // just for show. maybe imp add features later

@@ -62,6 +62,7 @@
 		08BA6E5429A2899B00D82A15 /* CollectiobViewDiffiableDataSourcePracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectiobViewDiffiableDataSourcePracticeUITests.swift; sourceTree = "<group>"; };
 		08BA6E5629A2899B00D82A15 /* CollectiobViewDiffiableDataSourcePracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectiobViewDiffiableDataSourcePracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		08DC5B5A29A3F54D0053579E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		08DC5B5B29A3FB090053579E /* Config.Example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.Example.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +168,7 @@
 				08BA6E3E29A2899B00D82A15 /* LaunchScreen.storyboard */,
 				08BA6E4129A2899B00D82A15 /* Info.plist */,
 				08DC5B5A29A3F54D0053579E /* Config.xcconfig */,
+				08DC5B5B29A3FB090053579E /* Config.Example.xcconfig */,
 			);
 			path = CollectiobViewDiffiableDataSourcePractice;
 			sourceTree = "<group>";
