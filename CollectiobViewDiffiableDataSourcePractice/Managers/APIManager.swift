@@ -20,12 +20,6 @@ public class APIManagerImpl: APIManager {
     public func decodeData<T: Codable>(_ data: Data, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let decoder = JSONDecoder()
 
-        if T.self == String.self, let returnData = String(data: data, encoding: .utf8), let responseData = returnData as? T {
-            completionHandler(.success(responseData))
-        } else if T.self == Data.self, let fullImage = UIImage(data: data), let responseData = fullImage as? T {
-            completionHandler(.success(responseData))
-        }
-
         do {
             let jsonData: T = try decoder.decode(T.self, from: data)
             completionHandler(.success(jsonData))

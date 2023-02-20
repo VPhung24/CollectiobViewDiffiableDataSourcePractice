@@ -14,14 +14,14 @@ class ViewController: UIViewController {
     private lazy var dataSource: DataSource = initDataSource()
 
     private lazy var twitterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).configured {
-        $0.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: "twitter")
+        $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "twitter")
         $0.register(TwitterSupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "twitterheader")
         $0.backgroundView = UIView().configured { backgroundView in
             backgroundView.backgroundColor = .systemBackground
         }
 
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.bounds.width, height: 100)
+        layout.itemSize = CGSize(width: view.bounds.width - 20, height: 100)
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
         layout.headerReferenceSize = CGSize(width: 0, height: 40)
@@ -47,7 +47,8 @@ class ViewController: UIViewController {
 
         view.addSubviewWithInsets(twitterCollectionView)
 
-        self.dataSource = initDataSource()
+        twitterCollectionView.dataSource = dataSource
+        twitterCollectionView.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -56,28 +57,32 @@ class ViewController: UIViewController {
     }
 
     private func initDataSource() -> DataSource {
-        let dataSource = DataSource(collectionView: twitterCollectionView) { (collectionView, indexPath, twitterHandle) -> UICollectionViewCell? in
-            let cell: UICollectionViewListCell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitter", for: indexPath) as! UICollectionViewListCell as! UICollectionViewListCell
-            var content = cell.defaultContentConfiguration()
-            content.text = twitterHandle.name
-            content.secondaryText = twitterHandle.username
-            //            if twitterHandle.image == nil {
-            //                self.getProfileImageForTwitterProfile(twitterHandle: twitterHandle)
-            //            } else {
-            //                content.image = twitterHandle.image
-            //                // default profile photo size "normal" is 48x48. circle corner radius 48/2
-            //                content.imageProperties.maximumSize = CGSize(width: 48, height: 48)
-            //                content.imageProperties.cornerRadius = 24
-            //            }
+        let dataSource = DataSource(collectionView: twitterCollectionView) { [weak self] (collectionView, indexPath, twitterModelHandleId) -> UICollectionViewCell? in
+            let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitter", for: indexPath) as! UICollectionViewCell
+            let twitterModel = self?.twitterProfiles.first(where: { $0.id == twitterModelHandleId })
+
+            var content = UIListContentConfiguration.cell()
+            content.text = twitterModel?.name
+            content.secondaryText = twitterModel?.username
+            // default profile photo size "normal" is 48x48. circle corner radius 48/2
+            content.imageProperties.maximumSize = CGSize(width: 48, height: 48)
+            content.imageProperties.cornerRadius = 24
+
+            if let twitterModelImage = twitterModel?.image {
+                content.image = twitterModelImage
+            } else {
+                self?.getProfileImage(for: twitterModel!)
+            }
+
             cell.contentConfiguration = content
             cell.accessibilityTraits = .button
-            cell.accessibilityLabel = "handle \(twitterHandle.username) with account name \(twitterHandle.name)"
+            cell.accessibilityLabel = "handle \(twitterModel?.username) with account name \(twitterModel?.name)"
             cell.accessibilityHint = "tap to tag user"
             return cell
         }
 
         let headerRegistration = configureHeader()
-        dataSource.supplementaryViewProvider = { collectionView, _, indexPath in
+        dataSource.supplementaryViewProvider = { (_ collectionView: UICollectionView, _ elementKind: String, _ indexPath: IndexPath) in
             return collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
         }
 
@@ -86,9 +91,14 @@ class ViewController: UIViewController {
 
     // MARK: - NSDiffableDataSourceSnapshot
     func applySnapshot(animated: Bool) {
+        let twitterModelIDs = getID(for: twitterProfiles)
+        guard !twitterModelIDs.isEmpty else {
+            return
+        }
+
         var snapshot = Snapshot()
         snapshot.appendSections([.twitter])
-        snapshot.appendItems(twitterProfiles, toSection: .twitter)
+        snapshot.appendItems(twitterModelIDs, toSection: .twitter)
         dataSource.apply(snapshot, animatingDifferences: animated)
     }
 
@@ -110,10 +120,34 @@ class ViewController: UIViewController {
         }
     }
 
-    func configureHeader() -> UICollectionView.SupplementaryRegistration<TwitterSupplementaryView> {
+    func getProfileImage(for twitterModel: TwitterProfileModel, isFullImage: Bool = false) {
+        let baseURL: String = isFullImage ? twitterModel.profileImageURL.replacingOccurrences(of: "_normal", with: "") : twitterModel.profileImageURL
+        let urlRequest: URLRequest = apiManager.networkRequest(baseURL: baseURL, endpoint: TwitterAPIEndpoint.getProfilePhoto, parameters: nil, headers: nil)
 
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
+            guard let responseData = data, let image = UIImage(data: responseData), error == nil else {
+                print("error ===> \(error!.localizedDescription)")
+                return
+            }
+
+            twitterModel.image = image
+            self?.applySnapshot(animated: true)
+        }
+        task.resume()
+    }
+
+    func configureHeader() -> UICollectionView.SupplementaryRegistration<TwitterSupplementaryView> {
         return UICollectionView.SupplementaryRegistration<TwitterSupplementaryView>(elementKind: UICollectionView.elementKindSectionHeader, handler: { (_, _, _) in
         })
-
     }
+
+    func getID(for model: [TwitterProfileModel]) -> [TwitterProfileModel.ID] {
+        return model.map { item in
+            return item.id
+        }
+    }
+}
+
+extension ViewController: UICollectionViewDelegate {
+
 }

@@ -7,9 +7,9 @@
 
 import UIKit
 
-typealias DataSource = UICollectionViewDiffableDataSource<Section, TwitterProfileModel>
-typealias Snapshot = NSDiffableDataSourceSnapshot<Section, TwitterProfileModel>
-typealias SupplementaryViewDataSource = UICollectionViewDiffableDataSource<Section, TwitterProfileModel>.SupplementaryViewProvider
+typealias DataSource = UICollectionViewDiffableDataSource<Section, TwitterProfileModel.ID>
+typealias Snapshot = NSDiffableDataSourceSnapshot<Section, TwitterProfileModel.ID>
+typealias SupplementaryViewDataSource = UICollectionViewDiffableDataSource<Section, TwitterProfileModel.ID>.SupplementaryViewProvider
 
 enum Section: Int {
     case twitter

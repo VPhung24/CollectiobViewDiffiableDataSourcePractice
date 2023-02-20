@@ -14,6 +14,10 @@ class TwitterProfileModel: Hashable, Codable, Identifiable, Equatable {
     var profileImageURL: String
     var image: UIImage?
 
+    var id: String {
+        return username
+    }
+
     init(username: String, name: String, profileImageURL: String) {
         self.username = username
         self.name = name

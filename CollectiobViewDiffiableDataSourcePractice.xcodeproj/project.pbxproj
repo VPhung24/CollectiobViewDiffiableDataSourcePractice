@@ -11,7 +11,6 @@
 		0871757529A2911700A20A52 /* TwitterProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871757429A2911700A20A52 /* TwitterProfileModel.swift */; };
 		0871757829A2929D00A20A52 /* VivNetworkExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 0871757729A2929D00A20A52 /* VivNetworkExtensions */; };
 		0871757A29A2929D00A20A52 /* VivUIKitExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 0871757929A2929D00A20A52 /* VivUIKitExtensions */; };
-		0871757D29A2975600A20A52 /* TwitterCollectionViewCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871757C29A2975600A20A52 /* TwitterCollectionViewCelll.swift */; };
 		0871758029A2A7C800A20A52 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871757F29A2A7C800A20A52 /* APIManager.swift */; };
 		0871758229A2A97200A20A52 /* EndpointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871758129A2A97200A20A52 /* EndpointManager.swift */; };
 		0871758529A2EA4E00A20A52 /* TwitterSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871758429A2EA4E00A20A52 /* TwitterSupplementaryView.swift */; };
@@ -46,7 +45,6 @@
 /* Begin PBXFileReference section */
 		0871756F29A2908700A20A52 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		0871757429A2911700A20A52 /* TwitterProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterProfileModel.swift; sourceTree = "<group>"; };
-		0871757C29A2975600A20A52 /* TwitterCollectionViewCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCollectionViewCelll.swift; sourceTree = "<group>"; };
 		0871757F29A2A7C800A20A52 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0871758129A2A97200A20A52 /* EndpointManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointManager.swift; sourceTree = "<group>"; };
 		0871758329A2CDDA00A20A52 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 		0871757B29A2972200A20A52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0871757C29A2975600A20A52 /* TwitterCollectionViewCelll.swift */,
 				0871758429A2EA4E00A20A52 /* TwitterSupplementaryView.swift */,
 			);
 			path = Views;
@@ -354,7 +351,6 @@
 				08BA6E3829A2899A00D82A15 /* ViewController.swift in Sources */,
 				0871758529A2EA4E00A20A52 /* TwitterSupplementaryView.swift in Sources */,
 				0871757029A2908700A20A52 /* Section.swift in Sources */,
-				0871757D29A2975600A20A52 /* TwitterCollectionViewCelll.swift in Sources */,
 				0871758029A2A7C800A20A52 /* APIManager.swift in Sources */,
 				0871758229A2A97200A20A52 /* EndpointManager.swift in Sources */,
 				0871757529A2911700A20A52 /* TwitterProfileModel.swift in Sources */,
