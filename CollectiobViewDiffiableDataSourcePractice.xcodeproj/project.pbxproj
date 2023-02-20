@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0871757029A2908700A20A52 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871756F29A2908700A20A52 /* Section.swift */; };
+		0871757529A2911700A20A52 /* TwitterProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871757429A2911700A20A52 /* TwitterProfileModel.swift */; };
+		0871757829A2929D00A20A52 /* VivNetworkExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 0871757729A2929D00A20A52 /* VivNetworkExtensions */; };
+		0871757A29A2929D00A20A52 /* VivUIKitExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 0871757929A2929D00A20A52 /* VivUIKitExtensions */; };
+		0871757D29A2975600A20A52 /* TwitterCollectionViewCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871757C29A2975600A20A52 /* TwitterCollectionViewCelll.swift */; };
+		0871758029A2A7C800A20A52 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871757F29A2A7C800A20A52 /* APIManager.swift */; };
+		0871758229A2A97200A20A52 /* EndpointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871758129A2A97200A20A52 /* EndpointManager.swift */; };
+		0871758529A2EA4E00A20A52 /* TwitterSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871758429A2EA4E00A20A52 /* TwitterSupplementaryView.swift */; };
+		0871758729A2F47700A20A52 /* TwitterEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0871758629A2F47700A20A52 /* TwitterEndpoints.swift */; };
 		08BA6E3429A2899A00D82A15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E3329A2899A00D82A15 /* AppDelegate.swift */; };
 		08BA6E3629A2899A00D82A15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E3529A2899A00D82A15 /* SceneDelegate.swift */; };
 		08BA6E3829A2899A00D82A15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA6E3729A2899A00D82A15 /* ViewController.swift */; };
@@ -35,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0871756F29A2908700A20A52 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		0871757429A2911700A20A52 /* TwitterProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterProfileModel.swift; sourceTree = "<group>"; };
+		0871757C29A2975600A20A52 /* TwitterCollectionViewCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCollectionViewCelll.swift; sourceTree = "<group>"; };
+		0871757F29A2A7C800A20A52 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		0871758129A2A97200A20A52 /* EndpointManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointManager.swift; sourceTree = "<group>"; };
+		0871758329A2CDDA00A20A52 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0871758429A2EA4E00A20A52 /* TwitterSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSupplementaryView.swift; sourceTree = "<group>"; };
+		0871758629A2F47700A20A52 /* TwitterEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterEndpoints.swift; sourceTree = "<group>"; };
 		08BA6E3029A2899A00D82A15 /* CollectiobViewDiffiableDataSourcePractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectiobViewDiffiableDataSourcePractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BA6E3329A2899A00D82A15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08BA6E3529A2899A00D82A15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0871757829A2929D00A20A52 /* VivNetworkExtensions in Frameworks */,
+				0871757A29A2929D00A20A52 /* VivUIKitExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +101,41 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		0871756E29A2906400A20A52 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0871756F29A2908700A20A52 /* Section.swift */,
+				0871758629A2F47700A20A52 /* TwitterEndpoints.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0871757329A290E100A20A52 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0871757429A2911700A20A52 /* TwitterProfileModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0871757B29A2972200A20A52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0871757C29A2975600A20A52 /* TwitterCollectionViewCelll.swift */,
+				0871758429A2EA4E00A20A52 /* TwitterSupplementaryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0871757E29A2A77A00A20A52 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0871757F29A2A7C800A20A52 /* APIManager.swift */,
+				0871758129A2A97200A20A52 /* EndpointManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		08BA6E2729A2899A00D82A15 = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +161,15 @@
 			children = (
 				08BA6E3329A2899A00D82A15 /* AppDelegate.swift */,
 				08BA6E3529A2899A00D82A15 /* SceneDelegate.swift */,
+				0871757E29A2A77A00A20A52 /* Managers */,
+				0871757B29A2972200A20A52 /* Views */,
+				0871757329A290E100A20A52 /* Models */,
+				0871756E29A2906400A20A52 /* Utilities */,
 				0871756D29A28AE400A20A52 /* View Controllers */,
 				08BA6E3C29A2899B00D82A15 /* Assets.xcassets */,
 				08BA6E3E29A2899B00D82A15 /* LaunchScreen.storyboard */,
 				08BA6E4129A2899B00D82A15 /* Info.plist */,
+				0871758329A2CDDA00A20A52 /* Config.xcconfig */,
 			);
 			path = CollectiobViewDiffiableDataSourcePractice;
 			sourceTree = "<group>";
@@ -149,6 +208,10 @@
 			dependencies = (
 			);
 			name = CollectiobViewDiffiableDataSourcePractice;
+			packageProductDependencies = (
+				0871757729A2929D00A20A52 /* VivNetworkExtensions */,
+				0871757929A2929D00A20A52 /* VivUIKitExtensions */,
+			);
 			productName = CollectiobViewDiffiableDataSourcePractice;
 			productReference = 08BA6E3029A2899A00D82A15 /* CollectiobViewDiffiableDataSourcePractice.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 08BA6E2729A2899A00D82A15;
+			packageReferences = (
+				0871757629A2929D00A20A52 /* XCRemoteSwiftPackageReference "ViviOSExtensions" */,
+			);
 			productRefGroup = 08BA6E3129A2899A00D82A15 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,7 +350,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0871758729A2F47700A20A52 /* TwitterEndpoints.swift in Sources */,
 				08BA6E3829A2899A00D82A15 /* ViewController.swift in Sources */,
+				0871758529A2EA4E00A20A52 /* TwitterSupplementaryView.swift in Sources */,
+				0871757029A2908700A20A52 /* Section.swift in Sources */,
+				0871757D29A2975600A20A52 /* TwitterCollectionViewCelll.swift in Sources */,
+				0871758029A2A7C800A20A52 /* APIManager.swift in Sources */,
+				0871758229A2A97200A20A52 /* EndpointManager.swift in Sources */,
+				0871757529A2911700A20A52 /* TwitterProfileModel.swift in Sources */,
 				08BA6E3429A2899A00D82A15 /* AppDelegate.swift in Sources */,
 				08BA6E3629A2899A00D82A15 /* SceneDelegate.swift in Sources */,
 			);
@@ -336,6 +409,7 @@
 /* Begin XCBuildConfiguration section */
 		08BA6E5829A2899B00D82A15 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0871758329A2CDDA00A20A52 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -396,6 +470,7 @@
 		};
 		08BA6E5929A2899B00D82A15 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0871758329A2CDDA00A20A52 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -618,6 +693,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0871757629A2929D00A20A52 /* XCRemoteSwiftPackageReference "ViviOSExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/VPhung24/ViviOSExtensions.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0871757729A2929D00A20A52 /* VivNetworkExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0871757629A2929D00A20A52 /* XCRemoteSwiftPackageReference "ViviOSExtensions" */;
+			productName = VivNetworkExtensions;
+		};
+		0871757929A2929D00A20A52 /* VivUIKitExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0871757629A2929D00A20A52 /* XCRemoteSwiftPackageReference "ViviOSExtensions" */;
+			productName = VivUIKitExtensions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 08BA6E2829A2899A00D82A15 /* Project object */;
 }

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "viviosextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VPhung24/ViviOSExtensions.git",
+      "state" : {
+        "revision" : "1ff7d7841af955db9051b3d6fa9b47150903ecd6",
+        "version" : "1.0.9"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  CollectiobViewDiffiableDataSourcePractice
+//
+//  Created by Vivian Phung on 2/19/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BEARER_TOKEN = Bearer AAAAAAAAAAAAAAAAAAAAAJEtiwEAAAAAcJ129aAamjrs8ao8UMOqF3FzQbw%3DuRCJQFTQ0LsGfqS0K3Tf7j2O4OJi3RsAUZ5C7emHox9M97onzm
+API_KEY = jOfPA86NC4UvBShDaJSPpXagg
+API_KEY_SECRET = 01uibvGIl5e7HTLKXngbUqZ1JubrqZtFzLjyBVtN0Hu0wnofe3
