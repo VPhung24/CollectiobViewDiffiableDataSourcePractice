@@ -130,8 +130,13 @@ class ViewController: UIViewController {
                 return
             }
 
-            twitterModel.image = image
-            self?.applySnapshot(animated: true)
+            var currentSnapshot = self?.dataSource.snapshot()
+            if let datasourceIndex = currentSnapshot?.indexOfItem(twitterModel.id) {
+                let item = self?.twitterProfiles[datasourceIndex]
+                item?.image = image
+                currentSnapshot?.reconfigureItems([item!.id])
+                self?.dataSource.apply(currentSnapshot!, animatingDifferences: true)
+            }
         }
         task.resume()
     }
