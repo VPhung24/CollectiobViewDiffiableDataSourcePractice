@@ -10,7 +10,7 @@ import VivUIKitExtensions
 
 // this is for practice for an experience (table view tho) with search check out: https://github.com/VPhung24/NfcWriter/blob/cdef92481a7385fade29a155e4867d27c4caaaef/NfcWriter/View%20Controllers/TwitterSearchViewController.swift
 class TwitterListViewController: UIViewController {
-    let apiManager: APIManager
+    private let apiManager: APIManager
     private var twitterProfiles: [TwitterProfileModel] = []
     private lazy var dataSource: DataSource = initDataSource()
 
@@ -44,7 +44,7 @@ class TwitterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
 
         view.addSubviewWithInsets(twitterCollectionView)
 
@@ -56,7 +56,7 @@ class TwitterListViewController: UIViewController {
         super.viewDidAppear(animated)
 
         // this is hardcoded for practice building collectionviews with diffiable data source
-        getTwitterProfile(type: "twitter")
+        getTwitterProfiles(for: "twitter")
     }
 
     // MARK: - UICollectionViewDiffableDataSource
@@ -111,8 +111,8 @@ class TwitterListViewController: UIViewController {
 
     // MARK: - Networking
     // this should be hooked up to a search bar
-    private func getTwitterProfile(type: String) {
-        let parameters: [String: Any] = ["q": type, "page": "1", "count": "10"]
+    private func getTwitterProfiles(for searchquery: String) {
+        let parameters: [String: Any] = ["q": searchquery, "page": "1", "count": "10"]
 
         guard let bearerToken: String = Bundle.main.infoDictionary?["BEARER_TOKEN"] as? String else { return }
         let header: [String: String] = ["Authorization": bearerToken]
@@ -149,11 +149,13 @@ class TwitterListViewController: UIViewController {
         task.resume()
     }
 
+    // MARK: - SupplementaryView
     func configureHeader() -> UICollectionView.SupplementaryRegistration<TwitterSupplementaryView> {
         return UICollectionView.SupplementaryRegistration<TwitterSupplementaryView>(elementKind: UICollectionView.elementKindSectionHeader, handler: { (_, _, _) in
         })
     }
 
+    // MARK: - Helpers
     func getID(for models: [TwitterProfileModel]) -> [TwitterProfileModel.ID] {
         return models.map { item in
             return item.id
